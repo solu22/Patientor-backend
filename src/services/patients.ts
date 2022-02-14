@@ -1,9 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-import data from "../../data/patients.json";
+import data from "../../data/patients";
 
 import { NewPatientEntry, Patient, PublicPatient } from "../types";
 
-const patientsData: Array<Patient> = data as Array<Patient>;
+const patientsData: Array<Patient> = data ;
 
 const getNonSensitiveEntries = (): Array<PublicPatient> => {
   return patientsData.map(({ id, name, dateOfBirth, gender, occupation}) => ({
@@ -28,7 +28,7 @@ const addNewPatients = (entry: NewPatientEntry): Patient=>{
 const findById = (id: string): Patient | undefined=>{
   const singlePatient = patientsData.find(sp=> sp.id === id);
   if(singlePatient){
-    return {...singlePatient, entries: []};
+    return singlePatient;
   }
   return singlePatient;
 };

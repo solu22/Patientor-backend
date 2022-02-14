@@ -1,8 +1,8 @@
 import diagnoses from '../../data/diagnoses.json';
 
-import { Diagnose } from '../types';
+import { Diagnosis } from '../types';
 
-const getEntries = (): Array<Diagnose>=>{
+const getEntries = (): Array<Diagnosis>=>{
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return diagnoses;
 };

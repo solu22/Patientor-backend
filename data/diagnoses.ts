@@ -1,5 +1,6 @@
+import { Diagnosis } from "../src/types";
 
-  [
+ const diagnosis: Diagnosis[]= [
       {
     "code": "M24.2",
     "name": "Disorder of ligament",
@@ -81,4 +82,7 @@
     "code": "J12.82",
     "name": "Pneumonia due to coronavirus disease"
   }
-]
+];
+
+
+export default diagnosis;

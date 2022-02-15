@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import data from "../../data/patients";
 
-import { NewPatientEntry, Patient, PublicPatient } from "../types";
+import { BaseEntry as Entry, NewPatientEntry, Patient, PublicPatient } from "../types";
 
 const patientsData: Array<Patient> = data ;
 
@@ -33,6 +33,11 @@ const findById = (id: string): Patient | undefined=>{
   return singlePatient;
 };
 
+const addEntry = (data: Omit<Entry, 'id'>):Entry=>{
+  const id:string = uuidv4();
+  return {id, ...data};
+};
 
 
-export default { getNonSensitiveEntries, addNewPatients, findById };
+
+export default { getNonSensitiveEntries, addNewPatients, findById, addEntry };

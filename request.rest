@@ -15,6 +15,14 @@ Content-Type: application/json
     "occupation": "Developer"
 }
 
+###
+POST http://localhost:3001/api/patients/d2773336-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
 
+{
+    "description": "MOHKO",
+    "date": "2022-02-15",
+    "specialist": "Mohko-doctor"
+}
 
 

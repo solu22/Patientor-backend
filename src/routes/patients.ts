@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import express from "express";
 import patientService from "../services/patients";
-import { toNewPatientEntry } from "../utils";
+import { toEntry, toNewPatientEntry } from "../utils";
 const router = express.Router();
 
 router.get("/", (_req, res) => {
@@ -38,5 +38,17 @@ router.post("/", (req, res) => {
 
   }
 });
+
+router.post("/:id/entries",(req, res)=>{
+  try {
+    const data = toEntry(req.body);
+    const newObj = patientService.addEntry(data);
+    res.json(newObj);
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 
 export default router;

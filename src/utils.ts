@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { Gender, NewPatientEntry } from "./types";
+import { BaseEntry as Entry } from "./types";
 
 /* Type guard */
 const isString = (text: unknown): text is string=>{
@@ -51,4 +52,13 @@ export const toNewPatientEntry = (object: any): NewPatientEntry=>{
         entries: []
     };
     return newEntry;
+};
+
+export const toEntry = (object: any): Omit<Entry, 'id'>=>{
+    return{
+        description: parseString(object.description),
+        date: parseDate(object.date),
+        specialist: parseString(object.specialist)
+    };
+
 };
